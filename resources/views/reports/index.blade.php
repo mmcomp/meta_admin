@@ -6,10 +6,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>
-                  پرداخت های
-                  {{ $student->first_name }} {{ $student->last_name }} [{{ $student->phone }}]
-              </h1>
+              <h1>گزارشات آربیتراژ</h1>
             </div>
             <div class="col-sm-6">
               <!--
@@ -30,7 +27,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-
+                    <a class="btn btn-success" href="{{ route('report_create') }}">گزارش جدید</a>
                 </h3>
               </div>
               <!-- /.card-header -->
@@ -40,20 +37,34 @@
                   <tr>
                     <th>ردیف</th>
                     <th>کد</th>
-                    <th>محصول</th>
-                    <th>مبلغ</th>
-                    <th>#</th>
+                    <th>آغاز تریدر</th>
+                    <th>باقیمانده تریدر</th>
+                    <th>سود/زیان</th>
+                    <th>قیمت دلار</th>
+                    <th>آغاز هفته</th>
+                    <!--<th>#</th>-->
                   </tr>
                   </thead>
                   <tbody>
-                      @foreach ($purchases as $index => $item)
+                      @foreach ($reports as $index => $item)
                       <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->product->name }}</td>
-                        <td>{{ number_format($item->price) }}</td>
+                        <td>{{ $item->start_charge }}</td>
+                        <td>{{ $item->remain_charge }}</td>
+                        <td>{{ $item->cost_and_benefit_rial }}</td>
+                        <td>{{ $item->dollar_to_rial }}</td>
+                        <td>{{ jdate($item->created_at)->format('Y/m/d') }}</td>
+                        <!--
                         <td>
+                            <a class="btn btn-primary" href="">
+                                ویرایش
+                            </a>
+                            <a class="btn btn-danger" href="">
+                                حذف
+                            </a>
                         </td>
+                        -->
                       </tr>
                       @endforeach
                   </tbody>

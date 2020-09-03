@@ -10,7 +10,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>تراکنش</h1>
+              <h1>آربیتراژ</h1>
             </div>
             <div class="col-sm-6">
               <!--
@@ -38,34 +38,40 @@
                 @csrf
                 <div class="row">
                     <div class="col">
-                        <!--
                         <div class="form-group">
-                            <label for="meta_trader_account">حساب تریدر</label>
-                            @if (isset($charge))
-                            <input type="text" class="form-control" id="meta_trader_account" name="meta_trader_account" placeholder="حساب تریدر" value="{{ $charge->meta_trader_account }}" />
+                            <label for="start_charge">آغاز تریدر</label>
+                            @if (isset($report))
+                            <input type="number" class="form-control" id="start_charge" name="start_charge" placeholder="آغاز تریدر" value="{{ $report->start_charge }}" disabled />
                             @else
-                            <input type="text" class="form-control" id="meta_trader_account" name="meta_trader_account" placeholder="حساب تریدر" value="{{ old('meta_trader_account') }}" />
+                            <input type="number" class="form-control" id="start_charge" name="start_charge" placeholder="آغاز تریدر" value="{{ old('start_charge') }}" disabled />
                             @endif
                         </div>
-                        -->
 
                         <div class="form-group">
-                            <label for="description">توضیحات</label>
-                            @if (isset($charge))
-                            <input type="text" class="form-control" id="description" name="description" placeholder="توضیحات" value="{{ $charge->description }}" />
+                            <label for="cost_and_benefit_rial">سود/زیان</label>
+                            @if (isset($report))
+                            <input type="number" class="form-control" id="cost_and_benefit_rial" name="cost_and_benefit_rial" placeholder="سود/زیان" value="{{ $report->cost_and_benefit_rial }}" />
                             @else
-                            <input type="text" class="form-control" id="description" name="description" placeholder="توضیحات" value="{{ old('description') }}" />
+                            <input type="number" class="form-control" id="cost_and_benefit_rial" name="cost_and_benefit_rial" placeholder="سود/زیان" value="{{ old('cost_and_benefit_rial') }}" />
                             @endif
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <label for="last_name">مبلغ</label>
-                            <small>درصورت برداشت مبلغ منفی وارد شود</small>
-                            @if (isset($charge))
-                            <input type="text" class="form-control" id="amount" name="amount" placeholder="مبلغ" value="{{ $charge->amount }}" required />
+                            <label for="remain_charge">باقیمانده تریدر</label>
+                            @if (isset($report))
+                            <input type="number" class="form-control" id="remain_charge" name="remain_charge" placeholder="باقیمانده تریدر" value="{{ $report->remain_charge }}" />
                             @else
-                            <input type="text" class="form-control" id="amount" name="amount" placeholder="مبلغ" value="{{ old('amount') }}" required />
+                            <input type="number" class="form-control" id="remain_charge" name="remain_charge" placeholder="باقیمانده تریدر" value="{{ old('remain_charge') }}" />
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dollar_to_rial">دلار</label>
+                            @if (isset($report))
+                            <input type="number" class="form-control" id="dollar_to_rial" name="dollar_to_rial" placeholder="دلار" value="{{ $report->dollar_to_rial }}" />
+                            @else
+                            <input type="number" class="form-control" id="dollar_to_rial" name="dollar_to_rial" placeholder="دلار" value="{{ old('dollar_to_rial') }}" />
                             @endif
                         </div>
                     </div>

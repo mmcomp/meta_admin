@@ -37,7 +37,7 @@
                   <tr>
                     <th>ردیف</th>
                     <th>کد</th>
-                    <th>حساب تریدر</th>
+                    <!--<th>حساب تریدر</th>-->
                     <th>مبلغ</th>
                     <th>توضیحات</th>
                     <th>تاریخ</th>
@@ -49,7 +49,7 @@
                       <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->meta_trader_account }}</td>
+                        <!--<td>{{ $item->meta_trader_account }}</td>-->
                         <td>{{ $item->amount }}</td>
                         <td>{{ $item->description }}</td>
                         <td>{{ jdate($item->created_at)->format('Y/m/d') }}</td>

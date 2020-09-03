@@ -30,6 +30,13 @@ Route::group(['middleware' => ['auth', 'message']], function () {
         Route::get('/delete/{id}', 'ChargeController@delete')->name('charge_delete');
     });
 
+
+    Route::group(['prefix' => '/reports'], function () {
+        Route::get('/', 'ReportController@index')->name('reports');
+        Route::any('/create', 'ReportController@create')->name('report_create');
+        Route::any('/edit/{id}', 'ReportController@edit')->name('report_edit');
+        Route::get('/delete/{id}', 'ReportController@delete')->name('report_delete');
+    });
     /*
     Route::group(['prefix' => '/need_parent_tag_ones'], function () {
         Route::get('/', 'NeedParentTagOneController@index')->name('need_parent_tag_ones');

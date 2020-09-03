@@ -214,6 +214,15 @@
                                 <p>مدیریت تراکنش دستی</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            @if(strpos(\Request::route()->getName(), 'report')===0)
+                            <a href="{{ route('reports') }}" class="nav-link active">
+                            @else
+                            <a href="{{ route('reports') }}" class="nav-link">
+                            @endif
+                                <p>گزارش آربیتراژ</p>
+                            </a>
+                        </li>
                         <!--
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
