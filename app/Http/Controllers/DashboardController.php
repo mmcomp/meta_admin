@@ -35,6 +35,22 @@ class DashboardController extends Controller
             $metas[$metaData->field_name] = $value;
         }
         // dd($metas);
+
+        $result = file_get_contents(env("META_SYSTEM_OPEN_URL"));
+        $result = @json_decode($result);
+        if($result->code == 200){
+            $systemOpens = MetaData::where('field_name', 'SystemOpens')->first();
+            if($systemOpens==null){
+                $metas['SystemOpens'] = $result->data->number;
+                $systemOpens = new MetaData;
+                $systemOpens->field_name = 'SystemOpens';
+                $systemOpens->field_persian_name = 'تعداد باز در سیستم';
+                $systemOpens->field_type = 'int';
+            }
+            $systemOpens->field_value = $result->data->number;
+            $systemOpens->save();
+        }
+        // dd($metas);
         return view('dashboard.admin', [
             "metas"=> $metas
         ]);

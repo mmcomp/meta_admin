@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\MetaTraderWeeklyData;
 use App\MetaTraderCharge;
+use App\MetaData;
 use Morilog\Jalali\CalendarUtils;
 use Illuminate\Http\Request;
 
@@ -21,8 +22,7 @@ class ReportController extends Controller
         ]);
     }
 
-    public function create(Request $request)
-    {
+    public function create(Request $request){
         $startWeek = date("Y-m-d");
         if(date("w")!=1){
             $startWeek = date("Y-m-d", strtotime("last monday"));
@@ -57,5 +57,20 @@ class ReportController extends Controller
 
         $request->session()->flash("msg_success", "گزارش با موفقیت افزوده شد.");
         return redirect()->route('reports');
+    }
+
+    //----------------API-----------------
+    public function metaTraderOpens(Request $request, $count) {
+        $metaTraderOpens = MetaData::where('field_name', 'MetaTraderOpens')->first();
+        if($metaTraderOpens==null) {
+            $metaTraderOpens = new MetaData;
+            $metaTraderOpens->field_name = 'MetaTraderOpens';
+            $metaTraderOpens->field_persian_name = 'تعداد باز در متاتریدر';
+            $metaTraderOpens->field_type = 'int';
+        }
+        $metaTraderOpens->field_value = $count;
+        $metaTraderOpens->save();
+
+        return ["status"=>true];
     }
 }

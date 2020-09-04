@@ -22,12 +22,12 @@
 <body class="hold-transition login-page" style="background-image: url('/dist/img/photo4.jpg');background-size: cover;">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index2.html">سامانه <b>تریدر</b></a>
+    <a href="index2.html">سامانه <b>متاتریدر</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">لطفا برای دسترسی به پنل تریدر وارد شوید</p>
+      <p class="login-box-msg">لطفا برای دسترسی به پنل وارد شوید</p>
       @if(isset($error))
       <div class="alert alert-danger">
           {{ $error->getMessage() }}

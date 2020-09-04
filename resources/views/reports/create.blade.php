@@ -39,11 +39,11 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <label for="start_charge">آغاز تریدر</label>
+                            <label for="start_charge">شارژ اولیه متاتریدر</label>
                             @if (isset($report))
-                            <input type="number" class="form-control" id="start_charge" name="start_charge" placeholder="آغاز تریدر" value="{{ $report->start_charge }}" disabled />
+                            <input type="number" class="form-control" id="start_charge" name="start_charge" placeholder="شارژ اولیه" value="{{ $report->start_charge }}" disabled />
                             @else
-                            <input type="number" class="form-control" id="start_charge" name="start_charge" placeholder="آغاز تریدر" value="{{ old('start_charge') }}" disabled />
+                            <input type="number" class="form-control" id="start_charge" name="start_charge" placeholder="شارژ اولیه" value="{{ old('start_charge') }}" disabled />
                             @endif
                         </div>
 
@@ -58,11 +58,11 @@
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <label for="remain_charge">باقیمانده تریدر</label>
+                            <label for="remain_charge">شارژ متاتریدر</label>
                             @if (isset($report))
-                            <input type="number" class="form-control" id="remain_charge" name="remain_charge" placeholder="باقیمانده تریدر" value="{{ $report->remain_charge }}" />
+                            <input type="number" class="form-control" id="remain_charge" name="remain_charge" placeholder="شارژ" value="{{ $report->remain_charge }}" />
                             @else
-                            <input type="number" class="form-control" id="remain_charge" name="remain_charge" placeholder="باقیمانده تریدر" value="{{ old('remain_charge') }}" />
+                            <input type="number" class="form-control" id="remain_charge" name="remain_charge" placeholder="شارژ" value="{{ old('remain_charge') }}" />
                             @endif
                         </div>
 
