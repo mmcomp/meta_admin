@@ -49,9 +49,9 @@ class ReportController extends Controller
             ]);
         }
 
-        $report->remain_charge = $request->input('remain_charge');
-        $report->cost_and_benefit_rial = $request->input('cost_and_benefit_rial');
-        $report->dollar_to_rial = $request->input('dollar_to_rial');
+        $report->remain_charge = (float)$request->input('remain_charge');
+        $report->cost_and_benefit_rial = (int)$request->input('cost_and_benefit_rial');
+        $report->dollar_to_rial = (int)$request->input('dollar_to_rial');
         $report->users_id = Auth::user()->id;
         $report->save();
 

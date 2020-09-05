@@ -60,9 +60,9 @@
                         <div class="form-group">
                             <label for="remain_charge">شارژ متاتریدر</label>
                             @if (isset($report))
-                            <input type="number" class="form-control" id="remain_charge" name="remain_charge" placeholder="شارژ" value="{{ $report->remain_charge }}" />
+                            <input type="text" class="form-control" id="remain_charge" name="remain_charge" placeholder="شارژ" value="{{ $report->remain_charge }}" />
                             @else
-                            <input type="number" class="form-control" id="remain_charge" name="remain_charge" placeholder="شارژ" value="{{ old('remain_charge') }}" />
+                            <input type="text" class="form-control" id="remain_charge" name="remain_charge" placeholder="شارژ" value="{{ old('remain_charge') }}" />
                             @endif
                         </div>
 
