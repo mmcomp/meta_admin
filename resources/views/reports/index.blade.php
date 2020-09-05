@@ -58,16 +58,19 @@
                         <td>{{ jdate($item->created_at)->format('Y/m/d') }}</td>
                         @if($item->dollar_to_rial > 0)
                         <td>
-                            @if(($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge)>0)
+                            @php
+                                $benefit = number_format(($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge), 2);
+                            @endphp
+                            @if($benefit>0)
                             <span class="alert alert-success">
                             @else
-                                @if(($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge)<0)
+                                @if($benefit<0)
                             <span class="alert alert-danger">
                                 @else
                             <span class="alert alert-info">
                                 @endif
                             @endif
-                            {{ ($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge)  }}
+                            {{ $benefit  }}
                             </span>
                         </td>
                         @else
