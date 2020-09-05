@@ -51,13 +51,13 @@
                       <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->start_charge }}</td>
-                        <td>{{ $item->remain_charge }}</td>
-                        <td>{{ $item->cost_and_benefit_rial }}</td>
-                        <td>{{ $item->dollar_to_rial }}</td>
-                        <td>{{ jdate($item->created_at)->format('Y/m/d') }}</td>
+                        <td>{{ number_format($item->start_charge, 2) }}</td>
+                        <td>{{ number_format($item->remain_charge, 2) }}</td>
+                        <td>{{ number_format($item->cost_and_benefit_rial) }}</td>
+                        <td>{{ number_format($item->dollar_to_rial) }}</td>
+                        <td>{{ jdate($item->start_of_week)->format('Y/m/d') }}</td>
                         @if($item->dollar_to_rial > 0)
-                        <td>
+                        <td style="direction: ltr !important;">
                             @php
                                 $benefit = number_format(($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge), 2);
                             @endphp
