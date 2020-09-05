@@ -60,7 +60,11 @@ class ReportController extends Controller
     }
 
     //----------------API-----------------
-    public function metaTraderOpens(Request $request, $count) {
+    public function metaTraderOpens(Request $request) {
+        $count = $request->input('count');
+        if($count==null)
+            return ["status"=>false];
+
         $metaTraderOpens = MetaData::where('field_name', 'MetaTraderOpens')->first();
         if($metaTraderOpens==null) {
             $metaTraderOpens = new MetaData;
