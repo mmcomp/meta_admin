@@ -42,6 +42,7 @@
                     <th>سود/زیان</th>
                     <th>قیمت دلار</th>
                     <th>آغاز هفته</th>
+                    <th>سود و زیان اربیتراژ</th>
                     <!--<th>#</th>-->
                   </tr>
                   </thead>
@@ -55,6 +56,23 @@
                         <td>{{ $item->cost_and_benefit_rial }}</td>
                         <td>{{ $item->dollar_to_rial }}</td>
                         <td>{{ jdate($item->created_at)->format('Y/m/d') }}</td>
+                        @if($item->dollar_to_rial > 0)
+                        <td>
+                            @if(($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge)>0)
+                            <span class="alert alert-success">
+                            @else
+                                @if(($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge)<0)
+                            <span class="alert alert-danger">
+                                @else
+                            <span class="alert alert-info">
+                                @endif
+                            @endif
+                            {{ ($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge)  }}
+                            </span>
+                        </td>
+                        @else
+                        <td>-</td>
+                        @endif
                         <!--
                         <td>
                             <a class="btn btn-primary" href="">
