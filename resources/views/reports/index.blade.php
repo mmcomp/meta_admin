@@ -109,7 +109,7 @@ $benefits = 0;
                         <span class="alert alert-info">
                             @endif
                         @endif
-                        {{ $benefits  }}
+                        {{ number_format($benefits, 2)  }}
                         </span>
                     </td>
                   </tfoot>
