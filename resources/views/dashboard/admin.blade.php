@@ -35,7 +35,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        @if(isset($metas['SystemOpens']) && $metas['SystemOpens']>0)
+                        @if(isset($metas['SystemOpens']) && $metas['SystemOpens']!=0)
                         <div class="callout callout-danger">
                             <h4>{{ $metas['SystemOpens'] }}</h4>
                         </div>
@@ -58,7 +58,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        @if(isset($metas['MetaTraderOpens']) && $metas['MetaTraderOpens']>0)
+                        @if(isset($metas['MetaTraderOpens']) && $metas['MetaTraderOpens']!=0)
                         <div class="callout callout-danger">
                             <h4>{{ $metas['MetaTraderOpens'] }}</h4>
                         </div>
