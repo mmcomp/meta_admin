@@ -55,6 +55,12 @@ class ReportController extends Controller
         $report->users_id = Auth::user()->id;
         $report->save();
 
+        $metaTraderCharge = new MetaTraderCharge;
+        $metaTraderCharge->meta_trader_account = "default";
+        $metaTraderCharge->amount = abs($report->start_charge - $report->remain_charge);
+        $metaTraderCharge->users_id = Auth::user()->id;
+        $metaTraderCharge->save();
+
         $request->session()->flash("msg_success", "گزارش با موفقیت افزوده شد.");
         return redirect()->route('reports');
     }

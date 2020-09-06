@@ -1,5 +1,9 @@
 @extends('layouts.index')
 
+@php
+$benefits = 0;
+@endphp
+
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -59,7 +63,9 @@
                         @if($item->dollar_to_rial > 0)
                         <td style="direction: ltr !important;">
                             @php
-                                $benefit = number_format(($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge), 2);
+                                $benefit = ($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge);
+                                $benefits += $benefit;
+                                $benefit = number_format($benefit, 2);
                             @endphp
                             @if($benefit>0)
                             <span class="alert alert-success">
@@ -89,6 +95,24 @@
                       </tr>
                       @endforeach
                   </tbody>
+                  <tfoot>
+                    <td colspan="7" style="text-align: left;">
+                        برآیند شارژ
+                    </td>
+                    <td style="direction: ltr !important;">
+                        @if($benefits>0)
+                        <span class="alert alert-success">
+                        @else
+                            @if($benefits<0)
+                        <span class="alert alert-danger">
+                            @else
+                        <span class="alert alert-info">
+                            @endif
+                        @endif
+                        {{ $benefits  }}
+                        </span>
+                    </td>
+                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->
