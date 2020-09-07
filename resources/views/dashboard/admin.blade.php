@@ -37,7 +37,7 @@
                     <div class="box-body">
                         @if(isset($metas['SystemOpens']) && $metas['SystemOpens']!=0)
                         <div class="callout callout-danger">
-                            <h4>{{ $metas['SystemOpens'] }}</h4>
+                            <h4>{{ abs($metas['SystemOpens']) }} {{ ($metas['SystemOpens']>0)?'خرید':'فروش' }}</h4>
                         </div>
                         @else
                         <div class="callout callout-success">
@@ -60,7 +60,7 @@
                     <div class="box-body">
                         @if(isset($metas['MetaTraderOpens']) && $metas['MetaTraderOpens']!=0)
                         <div class="callout callout-danger">
-                            <h4>{{ $metas['MetaTraderOpens'] }}</h4>
+                        <h4>{{ abs($metas['MetaTraderOpens']) }} {{ ($metas['MetaTraderOpens']>0)?'خرید':'فروش' }}</h4>
                         </div>
                         @else
                         <div class="callout callout-success">

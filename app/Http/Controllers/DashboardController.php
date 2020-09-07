@@ -39,6 +39,10 @@ class DashboardController extends Controller
         $result = file_get_contents(env("META_SYSTEM_OPEN_URL"));
         $result = @json_decode($result);
         if($result->code == 200){
+            if($result->data->type=='sell'){
+                $result->data->number *= -1;
+            }
+            // dd($result);
             $systemOpens = MetaData::where('field_name', 'SystemOpens')->first();
             if($systemOpens==null){
                 $metas['SystemOpens'] = $result->data->number;
@@ -49,6 +53,7 @@ class DashboardController extends Controller
             }
             $systemOpens->field_value = $result->data->number;
             $systemOpens->save();
+            // dd($systemOpens);
         }
         // dd($metas);
         return view('dashboard.admin', [
