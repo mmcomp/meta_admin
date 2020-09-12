@@ -14,8 +14,10 @@ class ChargeController extends Controller
     public function index(){
         $charges = MetaTraderCharge::where('id', '>', 0)->get();
 
+        $totalCharge = MetaTraderCharge::where('id', '>', 0)->sum('amount');
         return view('charges.index',[
             'charges' => $charges,
+            'totalCharge' => $totalCharge,
             'msg_success' => request()->session()->get('msg_success'),
             'msg_error' => request()->session()->get('msg_error')
         ]);

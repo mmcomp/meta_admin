@@ -9,6 +9,8 @@
               <h1>تراکنش های دستی</h1>
             </div>
             <div class="col-sm-6">
+                جمع شارژ :
+                <b>{{ number_format($totalCharge, 2) }}</b>
               <!--
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -50,7 +52,7 @@
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $item->id }}</td>
                         <!--<td>{{ $item->meta_trader_account }}</td>-->
-                        <td>{{ $item->amount }}</td>
+                        <td>{{ number_format($item->amount, 2) }}</td>
                         <td>{{ $item->description }}</td>
                         <td>{{ jdate($item->created_at)->format('Y/m/d') }}</td>
                         <!--

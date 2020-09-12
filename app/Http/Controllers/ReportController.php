@@ -57,7 +57,8 @@ class ReportController extends Controller
 
         $metaTraderCharge = new MetaTraderCharge;
         $metaTraderCharge->meta_trader_account = "default";
-        $metaTraderCharge->amount = abs($report->start_charge - $report->remain_charge);
+        $metaTraderCharge->amount = $report->start_charge - $report->remain_charge;
+        $metaTraderCharge->description = "سود و زیان معامله گران در هفته";
         $metaTraderCharge->users_id = Auth::user()->id;
         $metaTraderCharge->save();
 
