@@ -223,6 +223,15 @@
                                 <p>گزارش آربیتراژ</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            @if(strpos(\Request::route()->getName(), 'setting')===0)
+                            <a href="{{ route('settings') }}" class="nav-link active">
+                            @else
+                            <a href="{{ route('settings') }}" class="nav-link">
+                            @endif
+                                <p>تنظیمات برکت اتوماتیک</p>
+                            </a>
+                        </li>
                         <!--
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">

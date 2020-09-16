@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('/meta_trader_opens', 'ReportController@metaTraderOpens')->name('meta_trader_opens');
+Route::post('/post_test', 'SettingController@test')->name('post_test');
 // Route::post('/products', 'ProductController@apiAddProducts')->name('api_add_products');
 // Route::post('/purchases', 'PurchaseController@apiAddPurchases')->name('api_add_purchases');
 // Route::post('/marketers', 'MarketerController@apiCheckMarketer')->name('api_check_marketer');
