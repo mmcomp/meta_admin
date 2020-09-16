@@ -20,7 +20,7 @@ class SettingController extends Controller
         curl_close($ch);
         try{
           $result = json_decode($result, true);
-        }catch(Exception $error) {
+        }catch(\Exception $error) {
           $result = null;
         }
         return $result;
