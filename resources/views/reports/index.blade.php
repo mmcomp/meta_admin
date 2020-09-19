@@ -63,7 +63,7 @@ $benefits = 0;
                         @if($item->dollar_to_rial > 0)
                         <td style="direction: ltr !important;">
                             @php
-                                $benefit = ($item->cost_and_benefit_rial/$item->dollar_to_rial) - abs($item->start_charge - $item->remain_charge);
+                                $benefit = ($item->cost_and_benefit_rial/$item->dollar_to_rial) - ($item->start_charge - $item->remain_charge);
                                 $benefits += $benefit;
                                 $benefit = number_format($benefit, 2);
                             @endphp
