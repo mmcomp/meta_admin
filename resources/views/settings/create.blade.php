@@ -53,8 +53,8 @@
                             <label for="type">خرید فروش هر دو</label>
                             <select class="form-control" id="type" name="type" >
                                 <option {{ $setting->type=='both'?'selected':'' }} value="both">هردو</option>
-                                <option {{ $setting->type=='sell'?'selected':'' }} value="sell">خرید</option>
-                                <option {{ $setting->type=='buy'?'selected':'' }} value="buy">فروش</option>
+                                <option {{ $setting->type=='buy'?'selected':'' }} value="sell">خرید</option>
+                                <option {{ $setting->type=='sell'?'selected':'' }} value="buy">فروش</option>
                             </select>
                         </div>
                     </div>
