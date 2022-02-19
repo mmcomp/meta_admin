@@ -40,5 +40,11 @@ Route::group(['middleware' => ['auth', 'message']], function () {
     Route::group(['prefix' => '/settings'], function () {
         Route::any('/', 'SettingController@edit')->name('settings');
     });
+
+    Route::group(['prefix' => '/allowusers'], function () {
+        Route::get('/', 'AllowedUserController@index')->name('allowusers');
+        Route::any('/create', 'AllowedUserController@create')->name('allowusers_create');
+        Route::get('/delete/{id}', 'AllowedUserController@destroy')->name('allowusers_delete');
+    });
 });
 

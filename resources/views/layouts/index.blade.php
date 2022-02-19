@@ -232,6 +232,15 @@
                                 <p>تنظیمات برکت اتوماتیک</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            @if(strpos(\Request::route()->getName(), 'allowUsers')===0)
+                            <a href="{{ route('allowusers') }}" class="nav-link active">
+                            @else
+                            <a href="{{ route('allowusers') }}" class="nav-link">
+                            @endif
+                                <p>افرادی که آربیت میشوند</p>
+                            </a>
+                        </li>
                         <!--
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
